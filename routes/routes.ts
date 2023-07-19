@@ -8,14 +8,15 @@ import mulcontrol from '../controllers/mulaontroller';
 import powcontrol from '../controllers/powcontroller';
 import sqrtcontrol from '../controllers/sqrtcontroller';
 import subcontrol from '../controllers/subcontroller';
+import check from '../middleware/checklength';
 
 router.route("/").get(homecontroller);
-router.route("/add").post(addcontrol);
-router.route("/div").post(divcontrol);
+router.route("/add").post(check,addcontrol);
+router.route("/div").post(check,divcontrol);
 router.route("/log").post(logcontrol);
-router.route("/mul").post(mulcontrol);
-router.route("/pow").post(powcontrol);
+router.route("/mul").post(check,mulcontrol);
+router.route("/pow").post(check,powcontrol);
 router.route("/sqrt").post(sqrtcontrol);
-router.route("/sub").post(subcontrol);
+router.route("/sub").post(check,subcontrol);
 
 export {router};
